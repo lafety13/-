@@ -1,0 +1,13 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^api/users/$   RestController.php?view=all [nc,qsa]
+RewriteRule ^api/users/search/([A-Za-z0-9]+)/$   RestController.php?view=search&name=$1 [nc,qsa]
+
+RewriteRule ^api/users/getid/([0-9]+)/$   RestController.php?view=single&id=$1 [nc,qsa]
+
+RewriteRule ^api/users/([0-9]+)/$   RestController.php?view=update&id=$1 [nc,qsa]
+
+RewriteRule ^api/users/delete/([0-9]+)/$   RestController.php?view=delete&id=$1 [nc,qsa]
